@@ -1,6 +1,6 @@
 let express= require('express');
 let app= express();
-let port = 7700;
+let port = process.env.PORT || 7700;
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
 let mongoUrl="mongodb+srv://test:iOOoxoWbkV0up8vE@cluster0.elbrrf2.mongodb.net/?retryWrites=true&w=majority";
