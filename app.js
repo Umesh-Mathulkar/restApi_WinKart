@@ -39,6 +39,16 @@ app.get('/catProd/:catId',(req,res)=>{
     })
 
 })
+//all products based on category
+app.get('/catAllProd/:catId',(req,res)=>{
+    let catId= Number(req.params.catId)
+    let query= {category_id:catId}
+      db.collection('products').find(query).toArray((err,result)=>{
+          if(err) throw err;
+          res.send(result);
+      })
+  
+  })
 
 
 //products based on subCategory and brand filter and color
