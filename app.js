@@ -170,7 +170,7 @@ app.delete('/deleteCart/:oid',(req,res)=>{
     db.collection('carts').remove(
         {orderId:oid},(err,result)=>{
             if(err) throw err
-            res.send("removed")
+            res.send(`removedd ${orderId}`)
         }
     )
 })
