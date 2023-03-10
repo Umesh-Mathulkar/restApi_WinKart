@@ -165,12 +165,12 @@ app.put('/updateOrder/:oid',(req,res)=>{
 
 
 //delete order
-app.delete('/deleteOrder/:oid',(req,res)=>{
+app.delete('/deleteCart/:oid',(req,res)=>{
     let oid = Number(req.params.oid);
-    db.collection('orders').remove(
-        {order_id:oid},(err,result)=>{
+    db.collection('carts').remove(
+        {product_id:oid},(err,result)=>{
             if(err) throw err
-            res.send("order removed")
+            res.send("removed")
         }
     )
 })
