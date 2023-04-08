@@ -92,12 +92,15 @@ app.get('/product/:proId',(req,res)=>{
 })
 
 //all products
-app.get('/allProducts',(req,res)=>{
-    db.collection('products').find().toArray((err,result)=>{
-        if(err) throw err;
-        res.send(result);
-    })
-})
+app.get('/allProducts', (req, res) => {
+    let search = req.query.search;
+    let query = { subCat_name: { $regex: search, $options: 'i' } };
+    db.collection('products').find(query).toArray((err, result) => {
+      if (err) throw err;
+      res.send(result);
+    });
+  });
+  
 
 //products based on brands
 app.get('/brand/:brands',(req,res)=>{
